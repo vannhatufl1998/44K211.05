@@ -42,10 +42,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -125,6 +133,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\PurchaseController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\SellController.cs" />
     <Compile Include="Dao\CustomerDetails.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
@@ -135,11 +144,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AllItemList.cs" />
-    <Compile Include="Models\Cart.cs" />
-    <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\PurchaseItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -151,17 +155,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\analytics.png" />
-    <Content Include="Images\cart.png" />
-    <Content Include="Images\cart1.png" />
-    <Content Include="Images\charts.png" />
-    <Content Include="Images\logger.png" />
-    <Content Include="Images\ml.png" />
-    <Content Include="Images\numeric.jfif" />
-    <Content Include="Images\numeric.jpg" />
-    <Content Include="Images\numeric.png" />
-    <Content Include="Images\paypal.png" />
-    <Content Include="Images\toothpaste.jpg" />
+    <Content Include="Images\anh1.jpg" />
+    <Content Include="Images\anh2.jpg" />
+    <Content Include="Images\anh3.jpg" />
+    <Content Include="Images\anh4.jpg" />
+    <Content Include="Images\anh5.jpg" />
+    <Content Include="Images\anh6.jpg" />
+    <Content Include="Images\schappyfarm.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -190,6 +190,8 @@
     <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Purchase\ViewCart.cshtml" />
     <Content Include="Views\Purchase\MyPurchases.cshtml" />
+    <Content Include="Views\Sell\Sell.cshtml" />
+    <Content Include="Views\Pur\Purs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
