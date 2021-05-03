@@ -1,0 +1,99 @@
+﻿@model ShoppingCart_ASP.NET_MVC5.Models.Product
+@using ShoppingCart_ASP.NET_MVC5.Models
+
+<style>
+    .row.display-flex {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+        .row.display-flex > [class*='col-'] {
+            display: flex;
+            flex-direction: column;
+        }
+</style>
+<div style="width:100%;background-color:white;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12" style="text-align:right;">
+                <i class="glyphicon glyphicon-user"></i> @ViewBag.firstname &nbsp;&nbsp;
+                <i class="glyphicon glyphicon-eye-open"></i>  @Html.ActionLink("Home", "Home", "Home", null, null) &nbsp;&nbsp;
+                <i class="glyphicon glyphicon-log-out"></i>@Html.ActionLink("Logout", "Logout", "Auth", null, null)
+
+            </div>
+        </div>
+        <div class="row" style="padding:10px;">
+            <div class="col-sm-3">
+                <span style="font-family:Century Gothic;font-size:23px;">HAPPY FARM</span>
+            </div>
+            <form action="/Search/Partial" name="Form" method="post" onsubmit="return validate()">
+                <div class="col-sm-5" style="text-align:right;">
+                    <div class="row display-flex">
+                        <input type="text" class="form-control" id="search" name="search" placeholder="Search.." style="max-width:100%" />
+                    </div>
+
+                </div>
+                <div class="col-sm-1">
+                    <span class="input-group-btn">
+                        <button class="btn btn-search" type="submit" style="border-radius"><i class="glyphicon glyphicon-search"></i>&nbsp;&nbsp; Search</button>
+                    </span>
+                </div>
+            </form>
+            <div class="col-sm-3" style="text-align:right;">
+                <form action="/Purchase/ViewCart" method="get">
+                    <button style="border-color:transparent;border-radius:30px;padding-top:5px;">
+                        <span class="glyphicon glyphicon-shopping-cart">
+                        </span>
+                        <span class="items">
+                            <p id="count" value="" class="badge">
+                                @ViewBag.Count
+                            </p>
+                        </span>
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" style="margin-top:8px">
+    <div class="row display-flex">
+        <div>
+          
+            <form>
+                <div class="container-fluid">
+                    <center>
+                        <h1 style="font-family:Century Gothic; color: forestgreen">TẠO ĐƠN HÀNG:</h1>
+                    </center>
+                    <img src="~/Images/logo1.jpg" style="width:50%">
+                </div>
+                <div class=" form-group">
+                    <label>MÃ</label><input type="text" id="pro_id" class="form-control" />
+                </div>
+                <div class=" form-group">
+                    <label>TÊN SẢN PHẨM</label>
+                    <input type="text" id="pro_name" class="form-control" />
+                </div>
+                <div class=" form-group">
+                    <label>MÔ TẢ</label>
+                    <input type="text" id="pro_desc" class="form-control" />
+                </div>
+                <div class=" form-group">
+                    <label>GIÁ CẢ</label>
+                    <input type="text" id="pro_price" class="form-control" />
+                </div>
+                <div>
+                    <label for="img">HÌNH ẢNH:</label>
+                    <input type="file" id="pro_image" name="img" accept="image/*">
+                </div>
+                <div class=" form-group">
+                    <label>THỜI GIAN</label>
+                    <input type="datetime" id="time_pr" class="form-control" />
+                </div>
+                <button onclick="location.href='@Url.Action("Product", "Purchase")'" value="POST" class="btn-lg"/>
+
+
+</div>
+    </div>
+</div>
